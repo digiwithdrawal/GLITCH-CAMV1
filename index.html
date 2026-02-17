@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Glitch Cam V1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <video id="vid" autoplay playsinline muted></video>
+    <canvas id="screen"></canvas>
+
+    <!-- iOS permission: requires a user gesture -->
+    <div id="startOverlay" class="startOverlay">
+      <div class="startCard">
+        <div class="startTitle">GLITCH CAM V1</div>
+        <div class="startSub">Tap START to request camera access.</div>
+        <button id="startBtn" class="btn primary full">START</button>
+        <pre id="errBox" class="errBox"></pre>
+        <div class="startHint">Must be <b>https://</b> in Safari.</div>
+      </div>
+    </div>
+
+    <header class="top">
+      <div class="brand">
+        <div class="dot"></div>
+        <div class="txt">
+          <div class="t1">GLITCH CAM V1</div>
+          <div class="t2">SCAN GLITCH • PHOTO + REC</div>
+        </div>
+      </div>
+      <button id="flip" class="btn glass">FLIP</button>
+    </header>
+
+    <!-- Always-recover HUD button -->
+    <button id="showHud" class="floatHud">SHOW HUD</button>
+
+    <section class="panel" id="panel">
+      <div class="row">
+        <div class="pill">
+          <div class="pillLabel">Format</div>
+          <select id="format">
+            <option value="auto" selected>AUTO</option>
+            <option value="portrait">PORTRAIT</option>
+            <option value="landscape">LANDSCAPE 16:9</option>
+            <option value="square">SQUARE 1:1</option>
+          </select>
+        </div>
+
+        <div class="pill">
+          <div class="pillLabel">Mode</div>
+          <select id="style">
+            <option value="scan" selected>SCAN GLITCH</option>
+            <option value="blocks">BLOCK TEAR</option>
+            <option value="warp">WARP RIPPLE</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="sliders">
+        <div class="srow">
+          <div class="slabel">STRENGTH</div>
+          <input id="s_strength" type="range" min="0" max="100" value="55">
+        </div>
+        <div class="srow">
+          <div class="slabel">RES</div>
+          <input id="s_res" type="range" min="240" max="1440" value="900">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="snap" class="btn">SNAP</button>
+        <button id="rec" class="btn primary">REC</button>
+        <button id="hud" class="btn">HIDE HUD</button>
+      </div>
+
+      <div class="tip" id="tip">Auto format follows rotation. Manual overrides.</div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
